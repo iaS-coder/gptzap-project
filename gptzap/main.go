@@ -38,7 +38,6 @@ func GenerateGPTText(query string) (string, error) {
 }
 
 func parseBase64RequestData(r string) (string, error) {
-	// encodedStr := base64.StdEncoding.EncodeToString([]byte(r))
 	dataBytes, err := base64.URLEncoding.DecodeString(r)
 	if err != nil {
 		return "", err
