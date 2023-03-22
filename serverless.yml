@@ -1,0 +1,22 @@
+service: gptzap
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: go1.x
+  stage: dev
+  region: us-east-1
+
+package:
+  patterns:
+    - '!./**'
+    - ./bin/**
+
+functions:
+  chat:
+    handler: bin/gptzap
+    events:
+      - httpApi:
+          path: /
+          method: post
